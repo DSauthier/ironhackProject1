@@ -45,7 +45,7 @@ class Game{
     this.loseLifeSound = new Audio("Cat Meow-SoundBible.com-1977450526.wav")
     this.score = 0;
     this.score = Number(playerScore.innerHTML)
-    this.healthPoints = 3;
+    this.healthPoints = 5;
     this.healthPoints = playerLife.innerHTML;
     let win = new Audio("bensound-summer.mp3");
     let backsound = new Audio("tubebackr-fresh-up.mp3");
