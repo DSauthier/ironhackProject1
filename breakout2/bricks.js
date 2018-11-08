@@ -65,7 +65,7 @@ class Game{
           win.play();
           document.location.reload()
         }
-        if(this.score > 3000){
+        if(this.score > 7999){
           clearInterval(blah)
           alert("you win! Visit my Linkedin to see more of my Work!");
           win.play();
@@ -144,7 +144,7 @@ class Ball{
     this.ballRadius = 10;
     this.startingPositionX = this.canvas.width / 2;
     this.startingPositionY = this.canvas.height - 30;
-    this.dx = Math.round(Math.random()) * 4 - 1;
+    this.dx = Math.round(Math.random()) * 6 - 1;
     this.dy = -2;
     this.addX = this.startingPositionX;
     this.addY = this.startingPositionY;
@@ -184,7 +184,7 @@ class Ball{
     
     if( this.canMove() === 1){
       // console.log("=-=--=-=-=-=-=CAN MOVE IS === 1 0-0-0-0-0-0-0-")
-      this.dx = -this.dx;
+      this.dx = -this.dx * 1.001;
     }
     if(this.canMove() === 2 ){
       this.dy = -this.dy;
@@ -195,6 +195,10 @@ class Ball{
     if(this.canMove() === 3){
       this.dy = Math.random() *3 - Math.random() * 4;
       this.dx = Math.random() *3; - Math.random()*4
+    }
+    if(this.regularBallCollision.gravity === 2){
+      console.log("gravity changed")
+      this.dy = -this.dy
     }
   // =--=-==-=-=-=-=-=-=-=-=-=-=-=-=-==-=--=-=-=-=-==-END OF BALL MOVEMENT -=-=-=-=-=-=-=-=-==-=-=-=-=-=--=-=
 
@@ -208,6 +212,7 @@ class Ball{
     let dx = this.dx;
     let dy = this.dy;
     let canvas = this.canvas;
+    this.gravity === 0;
 
     // console.log(this.canMove(this.ballStartingPosX, this.ballStartingPosY));
 
@@ -271,7 +276,7 @@ class Ball{
 
                       setTimeout(() => {
                         theGame.explodingBricks.shift()
-                      }, 500);
+                      }, 200);
                    //setTimeout and wait 2 second and then do theGame.explodingBricks.shift
 
 
@@ -302,6 +307,7 @@ class Ball{
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler);
     let result = 0
+ 
     // document.addEventListener("mousemove", mouseMoveHandler, false);
 
     // -=-=-=-checking if the keys are being pressed-=-=-=-
@@ -330,8 +336,10 @@ class Ball{
 
     function keyUpHandler(e) {
       if (e.keyCode == 32) {
-        // console.log("space created")
-        result = 3
+       
+        this.gravity === 2;
+        
+        
       }
       if (e.keyCode == 16) {
 
@@ -345,6 +353,7 @@ class Ball{
         // ballRadius = Math.random() * 20 + 5
         // redBallRadius = Math.random() * 19 + 5;
       }
+      this.gravity === 0
     }
 
     // function mouseMoveHandler(e) {
