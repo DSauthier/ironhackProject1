@@ -36,7 +36,8 @@ class Game{
     // console.log(playerLife.innerHTML)
     this.canvas = document.getElementById("myCanvas");
     this.ctx = this.canvas.getContext("2d");
-    this.ball1 = new Ball();
+    this.ball1 = new Ball("white");
+    this.ball2 = new Ball2("yellow")
     this.Paddle = new Paddle();
     this.bricks = new Brick();
     this.paddleSound = new Audio("4389__noisecollector__pongblipf-3.wav");
@@ -47,11 +48,14 @@ class Game{
     this.healthPoints = 3;
     this.healthPoints = playerLife.innerHTML;
     let win = new Audio("bensound-summer.mp3");
-    let backsound = new Audio("tubebackr-fresh-up.mp3")
+    let backsound = new Audio("tubebackr-fresh-up.mp3");
     // /////////// sprites tryout /////////////;
     this.explodingBricks = [];
-// ////////////////////////////////////////////
+    // ////////////////////////////////////////////
     this.arrayOfBricks = [];
+
+    this.shifter = 0;
+    // console.log(shifter);
     
     let blah = setInterval(()=>{
       
@@ -109,7 +113,14 @@ class Game{
     let ctx = this.ctx
     let canvas = this.canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     this.ball1.drawBall();
+
+    // if(this.shifter === 1){
+    //   this.ball2.drawBall();
+      
+    // }
+    
     this.Paddle.drawPaddle();
 
     this.arrayOfBricks.forEach((block) => {
@@ -130,7 +141,7 @@ class Game{
 }
     
 class Ball{
-  constructor(){
+  constructor(m){
     let ballRadius;
    
     this.canvas = document.getElementById("myCanvas");
@@ -148,7 +159,7 @@ class Ball{
     this.dy = -2;
     this.addX = this.startingPositionX;
     this.addY = this.startingPositionY;
-    
+    this.color = m;
   }
 
   drawBall() {
@@ -162,7 +173,7 @@ class Ball{
     
     ctx.beginPath();
     ctx.arc(this.startingPositionX, this.startingPositionY, this.ballRadius, 0, Math.PI * 2); /* the ballradius letiable will make it easier to guarantee the same radius everytime */
-    ctx.fillStyle = "white";
+    ctx.fillStyle = this.color;
     ctx.fill();
     ctx.closePath();
 
@@ -173,7 +184,7 @@ class Ball{
     // this.regularBallCollision();
 
     // the following lines of code make the ball move =-=- BALL MOVEMENT HERE -=-=-=-=-==-=--=
-     this.commandCenter();
+     
       if(this.canMove() === 0){
         // console.log("---=-==-=-=--=-=WHAT IS GOING ON!?-=-=-=-=-=")
         this.startingPositionY += this.dy;
@@ -196,7 +207,7 @@ class Ball{
       this.dy = Math.random() *3 - Math.random() * 4;
       this.dx = Math.random() *3; - Math.random()*4
     }
-    if(this.regularBallCollision.gravity === 2){
+    if (this.commandCenter()=== 2){
       console.log("gravity changed")
       this.dy = -this.dy
     }
@@ -221,7 +232,7 @@ class Ball{
   }
   canMove() {
     
-    this.commandCenter()
+    // this.commandCenter()
     // console.log(this.commandCenter())
     
     let result = 0;
@@ -296,10 +307,10 @@ class Ball{
      
     })
 
-    if (this.commandCenter() === 3) {
-      // console.log("heeeeeeey")
-      result = 3
-    }
+    // if (this.commandCenter() === 3) {
+    //   // console.log("heeeeeeey")
+    //   result = 3
+    // }
     return result;
   }
 
@@ -336,21 +347,26 @@ class Ball{
 
     function keyUpHandler(e) {
       if (e.keyCode == 32) {
-       
-        this.gravity === 2;
+      
+        theGame.ball1.dy = -Math.random()*5;
         
         
       }
       if (e.keyCode == 16) {
-
+        // console.log("hello")
+        // theGame.shifter === 1;
+        // console.log(theGame.shifter)
       // shift
       }
       if (e.keyCode == 84) {
+        
+        theGame.ball1.dx += 0.01;
+        theGame.ball1.dy += 0.01;
       // T
       }
       if (e.keyCode == 82) {
-        // rPressed = false;
-        // ballRadius = Math.random() * 20 + 5
+        
+        theGame.ball1.ballRadius = Math.random() * 20 + 5
         // redBallRadius = Math.random() * 19 + 5;
       }
       this.gravity === 0
@@ -507,3 +523,5 @@ class Brick{
 
 
 }
+
+class Ball2 extends Ball{}
