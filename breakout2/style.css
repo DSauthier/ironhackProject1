@@ -1,0 +1,81 @@
+body{
+  background-image: url("./background1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.specialSkills{
+      font-size: 20px;
+    list-style: none;
+    font-style: italic;
+    font-weight: 900;
+    color: white;
+}
+.links a{
+  color: white;
+  font-size: 2vw;
+}
+#myCanvas{
+  border: 2px solid blue;
+  border-radius: 20px;
+  background-image: url("./images/ASP-Murphy-Bricks-Background.jpg");
+ background-repeat: no-repeat;
+    background-size: auto;
+    margin-left: 18vw;
+    margin-top: 1vw;
+}
+
+.scoreDiv{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -20px 0px;
+}
+
+.scoreDestroyed{
+  margin-right: 5vw;
+}
+.button {
+  font: bold 15px Arial;
+  text-decoration: none;
+  background-color: fuchsia;
+  color: #333333;
+  padding: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  border-radius: 20px;
+}
+.buttonMetal {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  
+}
+#bricksDestroyed{
+    padding: 0px 10px;
+
+}
+
+#playerBalls{
+  padding: 0px 10px;
+}
+.dontMove{
+  position: relative;
+  top: 350px;
+  left: 685px;
+}
+
+.links{
+  list-style: none;
+}
+
+.move{
+  display: none;
+}

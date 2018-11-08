@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+  <!-- <div>
+    <button id="start">Start</button>
+    
+  </div> -->
+  <div class="scoreDiv">
+    <p class="scoreDestroyed button">Bricks Destroyed : <span id="bricksDestroyed"> 0 </span></p>
+    <p class="button">Balls : <span id="playerBalls"> 10 </span></p>
+    <ul class="links">
+      <li><a href="https://github.com/DSauthier"> <i class="fab fa-github"></i>Visit My Github</a></li>
+      <li><a href="https://www.linkedin.com/in/dsauthier/"> <i class="fab fa-linkedin-in"></i> Visit My Linkedin</a></li>
+    </ul>
+    
+    
+  <!-- <div>
+    <ul class="specialSkills"> Special Skills
+      <li> Press <span class="buttonMetal">SPACE</span> to change the ball Gravity</li>
+      <li> Press <span class="buttonMetal">SHIFT</span> to add a Second Ball</li>
+      <li> Press <span class="buttonMetal">T</span> to activate TURBO!</li>
+      <li> Press <span class="buttonMetal">R</span> to change the Ball Size Randomly!</li>
+    </ul>
+  </div> -->
+  </div>
+  <button class="dontMove" id="game-start"> START  </button>
+ 
+  <div>
+    <canvas id="myCanvas" height="600" width="900"></canvas>
+
+  </div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="bricks.js"></script>
+</body>
+</html>
